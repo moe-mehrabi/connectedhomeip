@@ -516,7 +516,7 @@ CHIP_ERROR ReadSingleClusterData(const SubjectDescriptor & aSubjectDescriptor, b
                                  AttributeValueEncoder::AttributeEncodeState * apEncoderState)
 {
     ChipLogDetail(DataManagement,
-                  "Reading attribute: Cluster=" ChipLogFormatMEI " Endpoint=%x AttributeId=" ChipLogFormatMEI " (expanded=%d)",
+                  "## MOE: Reading attribute: Cluster=" ChipLogFormatMEI " Endpoint=%x AttributeId=" ChipLogFormatMEI " (expanded=%d)",
                   ChipLogValueMEI(aPath.mClusterId), aPath.mEndpointId, ChipLogValueMEI(aPath.mAttributeId), aPath.mExpanded);
 
     // Check attribute existence. This includes attributes with registered metadata, but also specially handled

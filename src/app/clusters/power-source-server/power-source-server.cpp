@@ -26,7 +26,7 @@
 #include <app/util/attribute-storage.h>
 #include <lib/support/CodeUtils.h>
 #include <lib/support/logging/CHIPLogging.h>
-#include <zap-generated/gen_config.h>
+// #include <zap-generated/gen_config.h>
 
 using namespace chip;
 using namespace app;

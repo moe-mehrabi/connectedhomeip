@@ -28,6 +28,7 @@ limitations under the License.
         <item fieldId="1" name="CheckInNodeID" type="node_id" isFabricSensitive="true"/>
         <item fieldId="2" name="MonitoredSubject" type="INT64U" isFabricSensitive="true"/>
         <item fieldId="3" name="Key" type="OCTET_STRING" length="16" isFabricSensitive="true"/>
+        <item fieldId="4" name="FabricIndex" type="fabric_id" isFabricSensitive="true"/>
     </struct>
 
     <cluster>

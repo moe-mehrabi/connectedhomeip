@@ -53,11 +53,13 @@ limitations under the License.
     <item fieldId="2" name="AuthMode" type="AccessControlEntryAuthModeEnum" isFabricSensitive="true"/>
     <item fieldId="3" name="Subjects" type="INT64U" isNullable="true" array="true" isFabricSensitive="true"/>
     <item fieldId="4" name="Targets" type="AccessControlTargetStruct" isNullable="true" array="true" isFabricSensitive="true"/>
+    <item fieldId="5" name="FabricIndex" type="fabric_id" isFabricSensitive="true"/>
   </struct>
 
   <struct name="AccessControlExtensionStruct" isFabricScoped="true">
     <cluster code="0x001F"/>
     <item fieldId="1" name="Data" type="OCTET_STRING" length="128" isFabricSensitive="true"/>
+    <item fieldId="2" name="FabricIndex" type="fabric_id" isFabricSensitive="true"/>
   </struct>
 
   <cluster>
@@ -105,6 +107,7 @@ limitations under the License.
       <field id="2" name="AdminPasscodeID" type="INT16U" isNullable="true"/>
       <field id="3" name="ChangeType" type="ChangeTypeEnum"/>
       <field id="4" name="LatestValue" type="AccessControlEntryStruct" isNullable="true"/>
+      <field id="5" name="FabricIndex" type="fabric_id" isNullable="true"/>
       <access op="read" privilege="administer"/>
     </event>
     <event side="server" code="0x0001" name="AccessControlExtensionChanged" priority="info" isFabricSensitive="true" optional="false">
@@ -113,6 +116,7 @@ limitations under the License.
       <field id="2" name="AdminPasscodeID" type="INT16U" isNullable="true"/>
       <field id="3" name="ChangeType" type="ChangeTypeEnum"/>
       <field id="4" name="LatestValue" type="AccessControlExtensionStruct" isNullable="true"/>
+      <field id="5" name="FabricIndex" type="fabric_idx"/>
       <access op="read" privilege="administer"/>
     </event>
   </cluster>

@@ -21,6 +21,7 @@ limitations under the License.
     <cluster code="0x003F"/>
     <item fieldId="1" name="GroupId" type="group_id"/>
     <item fieldId="2" name="GroupKeySetID" type="INT16U"/>
+    <item fieldId="3" name="FabricIndex" type="fabric_id"/>
   </struct>
 
   <struct name="GroupInfoMapStruct" isFabricScoped="true">
@@ -28,6 +29,7 @@ limitations under the License.
     <item fieldId="1" name="GroupId" type="group_id"/>
     <item fieldId="2" name="Endpoints" type="endpoint_no" array="true"/>
     <item fieldId="3" name="GroupName" type="CHAR_STRING" length="16" optional="true"/>
+    <item fieldId="4" name="FabricIndex" type="fabric_id"/>
   </struct>
 
   <enum name="GroupKeySecurityPolicyEnum" type="ENUM8">

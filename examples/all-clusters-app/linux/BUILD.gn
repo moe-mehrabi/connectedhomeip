@@ -23,24 +23,24 @@ source_set("chip-all-clusters-common") {
   sources = [
     "${chip_root}/examples/all-clusters-app/all-clusters-common/src/binding-handler.cpp",
     "${chip_root}/examples/all-clusters-app/all-clusters-common/src/bridged-actions-stub.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/dishwasher-alarm-stub.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/dishwasher-mode.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/dishwasher-alarm-stub.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/dishwasher-mode.cpp",
     "${chip_root}/examples/all-clusters-app/all-clusters-common/src/fan-stub.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/laundry-washer-controls-delegate-impl.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/laundry-washer-mode.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/operational-state-delegate-impl.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/resource-monitoring-instances.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/rvc-modes.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/smco-stub.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/static-supported-modes-manager.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/static-supported-temperature-levels.cpp",
-    "${chip_root}/examples/all-clusters-app/all-clusters-common/src/tcc-mode.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/laundry-washer-controls-delegate-impl.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/laundry-washer-mode.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/operational-state-delegate-impl.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/resource-monitoring-instances.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/rvc-modes.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/smco-stub.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/static-supported-modes-manager.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/static-supported-temperature-levels.cpp",
+    # "${chip_root}/examples/all-clusters-app/all-clusters-common/src/tcc-mode.cpp",
     "AllClustersCommandDelegate.cpp",
     "AppOptions.cpp",
-    "WindowCoveringManager.cpp",
-    "include/tv-callbacks.cpp",
-    "include/tv-callbacks.h",
-    "main-common.cpp",
+   # "WindowCoveringManager.cpp",
+   #  "include/tv-callbacks.cpp",
+   #  "include/tv-callbacks.h",
+   #  "main-common.cpp",
   ]
 
   deps = [
@@ -127,6 +127,30 @@ if (is_libfuzzer) {
   }
 }
 
+static_library("MASLib") {
+  public_deps = [
+  ":chip-all-clusters-common",
+  # ":chip-lock-app-common",
+  # "${chip_root}/examples/platform/linux:app-main",
+  ]
+  sources = [
+  # "include/CHIPProjectAppConfig.h",
+  # "${chip_root}/config/standalone/CHIPProjectConfig.h"
+  ]
+
+  include_dirs = []
+  # include_dirs = [ "${chip_root}/examples/all-clusters-app/all-clusters-common/include" ]
+  
+  cflags = [ "-Wconversion" ]
+
+  output_name = "MASLib"
+
+  output_dir = "${root_out_dir}/lib"
+
+  complete_static_lib = true
+}
+
+
 group("linux") {
   deps = []
   if (is_libfuzzer) {
@@ -137,5 +161,5 @@ group("linux") {
 }
 
 group("default") {
-  deps = [ ":linux" ]
+  deps = [":MASLib" ]
 }

@@ -15,11 +15,12 @@
  *    limitations under the License.
  */
 
+#import "MKMatterBase_Internal.h"
 #import "MTRAttributeTLVValueDecoder_Internal.h"
 
-#import "MTRStructsObjc.h"
-#import "NSDataSpanConversion.h"
-#import "NSStringSpanConversion.h"
+//#import "MTRStructsObjc.h"
+//#import "NSDataSpanConversion.h"
+//#import "NSStringSpanConversion.h"
 
 #include <app-common/zap-generated/cluster-objects.h>
 #include <app-common/zap-generated/ids/Attributes.h>
