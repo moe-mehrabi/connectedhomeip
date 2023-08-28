@@ -27,24 +27,30 @@ LOG_MODULE_DECLARE(COsensor, CONFIG_CHIP_APP_LOG_LEVEL);
 
 SmokeCoAlarmManager SmokeCoAlarmManager::sAlarm;
 
-static std::array<ExpressedStateEnum, SmokeCoAlarmServer::kPriorityOrderLength> sPriorityOrder = {
-    ExpressedStateEnum::kSmokeAlarm,     ExpressedStateEnum::kInterconnectSmoke, ExpressedStateEnum::kCOAlarm,
-    ExpressedStateEnum::kInterconnectCO, ExpressedStateEnum::kHardwareFault,     ExpressedStateEnum::kTesting,
-    ExpressedStateEnum::kEndOfService,   ExpressedStateEnum::kBatteryAlert
-};
-
 CHIP_ERROR SmokeCoAlarmManager::Init()
 {
+    mExpressedState = ExpressedStateEnum::kNormal;
+
     return CHIP_NO_ERROR;
 }
 
-void SmokeCoAlarmManager::StartSelfTesting()
+bool SmokeCoAlarmManager::StartSelfTesting()
 {
     LOG_INF("Start self-testing!");
+    bool success = SmokeCoAlarmServer::Instance().SetTestInProgress(1, true);
 
-    // It will take some time here
+    if (success)
+    {
+        LOG_INF("Start self-testing success!");
+    }
+    else
+    {
+        LOG_INF("Start self-testing fail!");
+    }
 
+    SmokeCoAlarmServer::Instance().SetExpressedState(1, mExpressedState);
     SmokeCoAlarmServer::Instance().SetTestInProgress(1, false);
-    SmokeCoAlarmServer::Instance().SetExpressedStateByPriority(1, sPriorityOrder);
     LOG_INF("End self-testing!");
+
+    return success;
 }

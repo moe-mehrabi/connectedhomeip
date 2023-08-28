@@ -67,16 +67,23 @@ constructor(
       }
     )
 
+    val preferencesConfigurationManager = PreferencesConfigurationManager(context)
+    // Write discriminator
+    try {
+      preferencesConfigurationManager.writeConfigValueLong(
+        ConfigurationManager.kConfigNamespace_ChipFactory,
+        ConfigurationManager.kConfigKey_SetupDiscriminator,
+        matterSettings.discriminator.toLong()
+      )
+    } catch (e: AndroidChipPlatformException) {
+      e.printStackTrace()
+    }
+
     androidChipPlatform =
       AndroidChipPlatform(
         AndroidBleManager(),
         PreferencesKeyValueStoreManager(context),
-        MatterPreferencesConfigurationManager(
-          context,
-          matterSettings.device.deviceTypeId,
-          context.resources.getString(matterSettings.device.deviceNameResId),
-          matterSettings.discriminator
-        ),
+        preferencesConfigurationManager,
         NsdManagerServiceResolver(context),
         NsdManagerServiceBrowser(context),
         ChipMdnsCallbackImpl(),

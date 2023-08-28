@@ -289,13 +289,7 @@ public:
             return err;
         }
 
-#ifdef EMBER_AF_PLUGIN_LEVEL_CONTROL
-        if (!(LevelControlWithOnOffFeaturePresent(endpoint) &&
-              Scenes::ScenesServer::Instance().IsHandlerRegistered(endpoint, LevelControlServer::GetSceneHandler())))
-#endif
-        {
-            OnOffServer::Instance().scheduleTimerCallbackMs(sceneEventControl(endpoint), timeMs);
-        }
+        OnOffServer::Instance().scheduleTimerCallbackMs(sceneEventControl(endpoint), timeMs);
 
         return CHIP_NO_ERROR;
     }
@@ -598,7 +592,7 @@ void OnOffServer::initOnOffServer(chip::EndpointId endpoint)
 
 #ifdef EMBER_AF_PLUGIN_SCENES
         // Registers Scene handlers for the On/Off cluster on the server
-        app::Clusters::Scenes::ScenesServer::Instance().RegisterSceneHandler(endpoint, OnOffServer::Instance().GetSceneHandler());
+        app::Clusters::Scenes::ScenesServer::Instance().RegisterSceneHandler(OnOffServer::Instance().GetSceneHandler());
 #endif
 
 #ifdef EMBER_AF_PLUGIN_MODE_SELECT

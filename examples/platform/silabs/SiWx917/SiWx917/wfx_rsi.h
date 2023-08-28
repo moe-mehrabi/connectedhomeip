@@ -17,9 +17,6 @@
 
 #ifndef _WFX_RSI_H_
 #define _WFX_RSI_H_
-
-#include "event_groups.h"
-
 /*
  * Interface to RSI Sapis
  */
@@ -91,7 +88,7 @@ int32_t wfx_rsi_get_ap_info(wfx_wifi_scan_result_t * ap);
 int32_t wfx_rsi_get_ap_ext(wfx_wifi_scan_ext_t * extra_info);
 int32_t wfx_rsi_reset_count();
 int32_t wfx_rsi_disconnect();
-int32_t wfx_wifi_rsi_init(void);
+int32_t wfx_rsi_init_platform();
 
 #ifdef __cplusplus
 }

@@ -33,33 +33,7 @@
   ],
   "endpointTypes": [
     {
-      "id": 2,
       "name": "MA-rootdevice",
-      "deviceTypeRef": {
-        "id": 2,
-        "code": 22,
-        "profileId": 259,
-        "label": "MA-rootdevice",
-        "name": "MA-rootdevice"
-      },
-      "deviceTypes": [
-        {
-          "id": 2,
-          "code": 22,
-          "profileId": 259,
-          "label": "MA-rootdevice",
-          "name": "MA-rootdevice"
-        }
-      ],
-      "deviceTypeRefs": [
-        2
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        22
-      ],
       "deviceTypeName": "MA-rootdevice",
       "deviceTypeCode": 22,
       "deviceTypeProfileId": 259,
@@ -1415,7 +1389,7 @@
               "side": "server",
               "type": "char_string",
               "included": 1,
-              "storageOption": "NVM",
+              "storageOption": "External",
               "singleton": 1,
               "bounded": 0,
               "defaultValue": "",
@@ -6252,33 +6226,7 @@
       ]
     },
     {
-      "id": 1,
-      "name": "MA-dishwasher",
-      "deviceTypeRef": {
-        "id": 47,
-        "code": 117,
-        "profileId": 259,
-        "label": "MA-dishwasher",
-        "name": "MA-dishwasher"
-      },
-      "deviceTypes": [
-        {
-          "id": 47,
-          "code": 117,
-          "profileId": 259,
-          "label": "MA-dishwasher",
-          "name": "MA-dishwasher"
-        }
-      ],
-      "deviceTypeRefs": [
-        47
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        117
-      ],
+      "name": "MA-dimmablelight",
       "deviceTypeName": "MA-dishwasher",
       "deviceTypeCode": 117,
       "deviceTypeProfileId": 259,
@@ -9779,7 +9727,7 @@
               "storageOption": "RAM",
               "singleton": 0,
               "bounded": 0,
-              "defaultValue": "6",
+              "defaultValue": "5",
               "reportable": 1,
               "minInterval": 0,
               "maxInterval": 65344,
@@ -10701,7 +10649,7 @@
               "storageOption": "RAM",
               "singleton": 0,
               "bounded": 0,
-              "defaultValue": "6",
+              "defaultValue": "5",
               "reportable": 1,
               "minInterval": 0,
               "maxInterval": 65344,
@@ -10834,14 +10782,18 @@
       "endpointTypeIndex": 0,
       "profileId": 259,
       "endpointId": 0,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 22
     },
     {
-      "endpointTypeName": "MA-dishwasher",
+      "endpointTypeName": "MA-dimmablelight",
       "endpointTypeIndex": 1,
       "profileId": 259,
       "endpointId": 1,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 117
     }
   ],
   "log": []

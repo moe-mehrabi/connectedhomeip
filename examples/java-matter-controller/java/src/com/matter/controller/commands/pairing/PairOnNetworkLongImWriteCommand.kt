@@ -52,7 +52,7 @@ class PairOnNetworkLongImWriteCommand(
     }
 
     override fun onResponse(attributePath: ChipAttributePath?) {
-      logger.log(Level.INFO, "Write receive OnResponse on ")
+      logger.log(Level.INFO, "Write receve OnResponse on ")
       if (attributePath != null) {
         logger.log(Level.INFO, attributePath.toString())
       }
@@ -72,25 +72,15 @@ class PairOnNetworkLongImWriteCommand(
   }
 
   override fun runCommand() {
-    val tlvWriter1 = TlvWriter()
-    tlvWriter1.put(AnonymousTag, true)
-    val attributeList1 =
+    val tlvWriter = TlvWriter()
+    tlvWriter.put(AnonymousTag, true)
+    val attributeList =
       listOf(
         AttributeWriteRequest.newInstance(
           /* endpointId= */ 0,
           CLUSTER_ID_BASIC,
           ATTR_ID_LOCAL_CONFIG_DISABLED,
-          tlvWriter1.getEncoded()
-        )
-      )
-
-    val attributeList2 =
-      listOf(
-        AttributeWriteRequest.newInstance(
-          /* endpointId= */ 0,
-          CLUSTER_ID_BASIC,
-          ATTR_ID_LOCAL_CONFIG_DISABLED,
-          """{"40:BOOL":false}"""
+          tlvWriter.getEncoded(),
         )
       )
 
@@ -109,11 +99,7 @@ class PairOnNetworkLongImWriteCommand(
       .getConnectedDevicePointer(getNodeId(), InternalGetConnectedDeviceCallback())
     clear()
     currentCommissioner()
-      .write(InternalWriteAttributesCallback(), devicePointer, attributeList1, 0, 0)
-    waitCompleteMs(getTimeoutMillis())
-    clear()
-    currentCommissioner()
-      .write(InternalWriteAttributesCallback(), devicePointer, attributeList2, 0, 0)
+      .write(InternalWriteAttributesCallback(), devicePointer, attributeList, 0, 0)
     waitCompleteMs(getTimeoutMillis())
   }
 

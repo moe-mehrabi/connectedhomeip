@@ -63,7 +63,6 @@ target_sources(app PRIVATE
                ${ALL_CLUSTERS_COMMON_DIR}/src/bridged-actions-stub.cpp
                ${ALL_CLUSTERS_COMMON_DIR}/src/fan-stub.cpp
                ${ALL_CLUSTERS_COMMON_DIR}/src/binding-handler.cpp
-               ${ALL_CLUSTERS_COMMON_DIR}/src/concentration-measurement-instances.cpp
                ${ALL_CLUSTERS_COMMON_DIR}/src/resource-monitoring-instances.cpp
                ${NRFCONNECT_COMMON}/util/LEDWidget.cpp)
 

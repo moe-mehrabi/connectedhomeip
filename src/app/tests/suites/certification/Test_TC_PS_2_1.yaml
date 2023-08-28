@@ -252,7 +252,7 @@ tests:
       attribute: "BatCommonDesignation"
       response:
           constraints:
-              type: enum16
+              type: int32u
               minValue: 0
               maxValue: 80
 
@@ -284,7 +284,7 @@ tests:
       attribute: "BatApprovedChemistry"
       response:
           constraints:
-              type: enum16
+              type: int32u
               minValue: 0
               maxValue: 32
 

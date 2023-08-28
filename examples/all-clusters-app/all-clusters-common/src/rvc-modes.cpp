@@ -88,11 +88,6 @@ CHIP_ERROR RvcRunModeDelegate::GetModeTagsByIndex(uint8_t modeIndex, List<ModeTa
     return CHIP_NO_ERROR;
 }
 
-ModeBase::Instance * RvcRunMode::Instance()
-{
-    return gRvcRunModeInstance;
-}
-
 void RvcRunMode::Shutdown()
 {
     if (gRvcRunModeInstance != nullptr)
@@ -175,11 +170,6 @@ CHIP_ERROR RvcCleanModeDelegate::GetModeTagsByIndex(uint8_t modeIndex, List<Mode
     tags.reduce_size(kModeOptions[modeIndex].modeTags.size());
 
     return CHIP_NO_ERROR;
-}
-
-ModeBase::Instance * RvcCleanMode::Instance()
-{
-    return gRvcCleanModeInstance;
 }
 
 void RvcCleanMode::Shutdown()

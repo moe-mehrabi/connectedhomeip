@@ -17,19 +17,13 @@
  */
 package chip.devicecontroller.model;
 
-import android.util.Log;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Stream;
 import javax.annotation.Nullable;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /** Class for tracking CHIP cluster state in a hierarchical manner. */
 public final class ClusterState {
-  private static final String TAG = "ClusterState";
   private Map<Long, AttributeState> attributes;
   private Map<Long, ArrayList<EventState>> events;
   private Optional<Long> dataVersion;
@@ -55,35 +49,6 @@ public final class ClusterState {
 
   public Optional<Long> getDataVersion() {
     return dataVersion;
-  }
-
-  /**
-   * Convenience utility for getting all attributes in Json string format.
-   *
-   * @return all attributes in Json string format., or empty string if not found.
-   */
-  public String getAttributesJson() {
-    JSONObject combinedObject = new JSONObject();
-    Stream<JSONObject> attributeJsons =
-        attributes.values().stream().map(it -> it.getJson()).filter(it -> it != null);
-
-    attributeJsons.forEach(
-        attributes -> {
-          for (Iterator<String> iterator = attributes.keys(); iterator.hasNext(); ) {
-            String key = iterator.next();
-            if (combinedObject.has(key)) {
-              Log.e(TAG, "Conflicting attribute tag Id is found: " + key);
-              continue;
-            }
-            try {
-              Object value = attributes.get(key);
-              combinedObject.put(key, value);
-            } catch (JSONException ex) {
-              Log.e(TAG, "receive attribute json exception: " + ex);
-            }
-          }
-        });
-    return combinedObject.toString();
   }
 
   /**
@@ -115,7 +80,7 @@ public final class ClusterState {
           builder.append(attributeId);
           builder.append(": ");
           builder.append(
-              attributeState.getJson() == null ? "null" : attributeState.getJson().toString());
+              attributeState.getValue() == null ? "null" : attributeState.getValue().toString());
           builder.append("\n");
         });
     events.forEach(
@@ -126,7 +91,7 @@ public final class ClusterState {
                 builder.append(eventId);
                 builder.append(": ");
                 builder.append(
-                    eventState.getJson() == null ? "null" : eventState.getJson().toString());
+                    eventState.getValue() == null ? "null" : eventState.getValue().toString());
                 builder.append("\n");
               });
         });

@@ -87,7 +87,7 @@ public:
      * @brief
      * Called when MatchingFabricInfo returned from target
      */
-    virtual void OnFabricCheck(NodeId matchingNodeId) {}
+    virtual void OnFabricCheck(const MatchingFabricInfo & info) {}
 
     /**
      * @brief

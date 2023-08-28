@@ -51,7 +51,6 @@ enum InternalPlatformSpecificEventTypes
     kRtkWiFiStationConnectedEvent,
     kRtkWiFiStationDisconnectedEvent,
     kRtkWiFiScanCompletedEvent,
-    kRtkWiFiDHCPCompletedEvent,
 };
 
 } // namespace DeviceEventType

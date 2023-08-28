@@ -1,5 +1,5 @@
 {
-  "featureLevel": 97,
+  "featureLevel": 90,
   "creator": "zap",
   "keyValuePairs": [
     {
@@ -33,33 +33,7 @@
   ],
   "endpointTypes": [
     {
-      "id": 1,
       "name": "MA-rootdevice",
-      "deviceTypeRef": {
-        "id": 2,
-        "code": 22,
-        "profileId": 259,
-        "label": "MA-rootdevice",
-        "name": "MA-rootdevice"
-      },
-      "deviceTypes": [
-        {
-          "id": 2,
-          "code": 22,
-          "profileId": 259,
-          "label": "MA-rootdevice",
-          "name": "MA-rootdevice"
-        }
-      ],
-      "deviceTypeRefs": [
-        2
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        22
-      ],
       "deviceTypeName": "MA-rootdevice",
       "deviceTypeCode": 22,
       "deviceTypeProfileId": 259,
@@ -265,7 +239,7 @@
               "code": 0,
               "mfgCode": null,
               "side": "server",
-              "type": "NameSupportBitmap",
+              "type": "bitmap8",
               "included": 1,
               "storageOption": "RAM",
               "singleton": 0,
@@ -459,7 +433,7 @@
               "side": "server",
               "type": "int8u",
               "included": 1,
-              "storageOption": "External",
+              "storageOption": "RAM",
               "singleton": 0,
               "bounded": 0,
               "defaultValue": "0x00",
@@ -1997,7 +1971,7 @@
               "code": 0,
               "mfgCode": null,
               "side": "server",
-              "type": "HourFormatEnum",
+              "type": "HourFormat",
               "included": 1,
               "storageOption": "NVM",
               "singleton": 0,
@@ -2013,7 +1987,7 @@
               "code": 1,
               "mfgCode": null,
               "side": "server",
-              "type": "CalendarTypeEnum",
+              "type": "CalendarType",
               "included": 1,
               "storageOption": "NVM",
               "singleton": 0,
@@ -2095,7 +2069,7 @@
               "code": 0,
               "mfgCode": null,
               "side": "server",
-              "type": "TempUnitEnum",
+              "type": "TempUnit",
               "included": 0,
               "storageOption": "NVM",
               "singleton": 0,
@@ -2263,7 +2237,7 @@
               "code": 2,
               "mfgCode": null,
               "side": "server",
-              "type": "RegulatoryLocationTypeEnum",
+              "type": "RegulatoryLocationType",
               "included": 1,
               "storageOption": "External",
               "singleton": 0,
@@ -2279,7 +2253,7 @@
               "code": 3,
               "mfgCode": null,
               "side": "server",
-              "type": "RegulatoryLocationTypeEnum",
+              "type": "RegulatoryLocationType",
               "included": 1,
               "storageOption": "External",
               "singleton": 0,
@@ -2519,7 +2493,7 @@
               "code": 5,
               "mfgCode": null,
               "side": "server",
-              "type": "NetworkCommissioningStatusEnum",
+              "type": "NetworkCommissioningStatus",
               "included": 1,
               "storageOption": "RAM",
               "singleton": 0,
@@ -3060,7 +3034,7 @@
               "code": 1,
               "mfgCode": null,
               "side": "server",
-              "type": "RoutingRoleEnum",
+              "type": "RoutingRole",
               "included": 1,
               "storageOption": "External",
               "singleton": 0,
@@ -4146,7 +4120,7 @@
               "code": 1,
               "mfgCode": null,
               "side": "server",
-              "type": "SecurityTypeEnum",
+              "type": "SecurityType",
               "included": 1,
               "storageOption": "External",
               "singleton": 0,
@@ -4162,7 +4136,7 @@
               "code": 2,
               "mfgCode": null,
               "side": "server",
-              "type": "WiFiVersionEnum",
+              "type": "WiFiVersionType",
               "included": 1,
               "storageOption": "External",
               "singleton": 0,
@@ -5369,33 +5343,7 @@
       ]
     },
     {
-      "id": 2,
       "name": "MA-dimmablelight",
-      "deviceTypeRef": {
-        "id": 9,
-        "code": 257,
-        "profileId": 259,
-        "label": "MA-dimmablelight",
-        "name": "MA-dimmablelight"
-      },
-      "deviceTypes": [
-        {
-          "id": 9,
-          "code": 257,
-          "profileId": 259,
-          "label": "MA-dimmablelight",
-          "name": "MA-dimmablelight"
-        }
-      ],
-      "deviceTypeRefs": [
-        9
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        257
-      ],
       "deviceTypeName": "MA-dimmablelight",
       "deviceTypeCode": 257,
       "deviceTypeProfileId": 259,
@@ -5473,7 +5421,7 @@
               "code": 1,
               "mfgCode": null,
               "side": "server",
-              "type": "IdentifyTypeEnum",
+              "type": "enum8",
               "included": 1,
               "storageOption": "RAM",
               "singleton": 0,
@@ -5641,7 +5589,7 @@
               "code": 0,
               "mfgCode": null,
               "side": "server",
-              "type": "NameSupportBitmap",
+              "type": "bitmap8",
               "included": 1,
               "storageOption": "RAM",
               "singleton": 0,
@@ -5859,7 +5807,7 @@
               "side": "server",
               "type": "int8u",
               "included": 1,
-              "storageOption": "External",
+              "storageOption": "RAM",
               "singleton": 0,
               "bounded": 0,
               "defaultValue": "0x00",
@@ -7230,7 +7178,7 @@
               "storageOption": "RAM",
               "singleton": 0,
               "bounded": 0,
-              "defaultValue": "6",
+              "defaultValue": "5",
               "reportable": 1,
               "minInterval": 0,
               "maxInterval": 65344,
@@ -7640,7 +7588,7 @@
               "storageOption": "RAM",
               "singleton": 0,
               "bounded": 0,
-              "defaultValue": "6",
+              "defaultValue": "5",
               "reportable": 1,
               "minInterval": 0,
               "maxInterval": 65344,
@@ -7687,7 +7635,7 @@
               "code": 0,
               "mfgCode": null,
               "side": "server",
-              "type": "OccupancyBitmap",
+              "type": "bitmap8",
               "included": 1,
               "storageOption": "RAM",
               "singleton": 0,
@@ -7703,7 +7651,7 @@
               "code": 1,
               "mfgCode": null,
               "side": "server",
-              "type": "OccupancySensorTypeEnum",
+              "type": "enum8",
               "included": 1,
               "storageOption": "RAM",
               "singleton": 0,
@@ -7719,7 +7667,7 @@
               "code": 2,
               "mfgCode": null,
               "side": "server",
-              "type": "OccupancySensorTypeBitmap",
+              "type": "bitmap8",
               "included": 1,
               "storageOption": "RAM",
               "singleton": 0,
@@ -7773,14 +7721,18 @@
       "endpointTypeIndex": 0,
       "profileId": 259,
       "endpointId": 0,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 22
     },
     {
       "endpointTypeName": "MA-dimmablelight",
       "endpointTypeIndex": 1,
       "profileId": 259,
       "endpointId": 1,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 257
     }
   ],
   "log": []

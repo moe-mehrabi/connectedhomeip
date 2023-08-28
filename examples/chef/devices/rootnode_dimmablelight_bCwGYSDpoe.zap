@@ -33,33 +33,7 @@
   ],
   "endpointTypes": [
     {
-      "id": 1,
       "name": "MA-rootdevice",
-      "deviceTypeRef": {
-        "id": 2,
-        "code": 22,
-        "profileId": 259,
-        "label": "MA-rootdevice",
-        "name": "MA-rootdevice"
-      },
-      "deviceTypes": [
-        {
-          "id": 2,
-          "code": 22,
-          "profileId": 259,
-          "label": "MA-rootdevice",
-          "name": "MA-rootdevice"
-        }
-      ],
-      "deviceTypeRefs": [
-        2
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        22
-      ],
       "deviceTypeName": "MA-rootdevice",
       "deviceTypeCode": 22,
       "deviceTypeProfileId": 259,
@@ -5468,33 +5442,7 @@
       ]
     },
     {
-      "id": 2,
       "name": "Anonymous Endpoint Type",
-      "deviceTypeRef": {
-        "id": 9,
-        "code": 257,
-        "profileId": 259,
-        "label": "MA-dimmablelight",
-        "name": "MA-dimmablelight"
-      },
-      "deviceTypes": [
-        {
-          "id": 9,
-          "code": 257,
-          "profileId": 259,
-          "label": "MA-dimmablelight",
-          "name": "MA-dimmablelight"
-        }
-      ],
-      "deviceTypeRefs": [
-        9
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        257
-      ],
       "deviceTypeName": "MA-dimmablelight",
       "deviceTypeCode": 257,
       "deviceTypeProfileId": 259,
@@ -7578,14 +7526,18 @@
       "endpointTypeIndex": 0,
       "profileId": 259,
       "endpointId": 0,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 22
     },
     {
       "endpointTypeName": "Anonymous Endpoint Type",
       "endpointTypeIndex": 1,
       "profileId": 260,
       "endpointId": 1,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 257
     }
   ],
   "log": []

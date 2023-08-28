@@ -93,10 +93,7 @@ namespace Scenes {
 // Bitmap for Feature
 enum class Feature : uint32_t
 {
-    kSceneNames   = 0x1,
-    kExplicit     = 0x2,
-    kTableSize    = 0x4,
-    kFabricScenes = 0x8,
+    kSceneNames = 0x1,
 };
 
 // Bitmap for ScenesCopyMode

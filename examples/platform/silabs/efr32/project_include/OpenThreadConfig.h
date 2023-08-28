@@ -98,10 +98,6 @@
 // and to stay awake after receiving a packet with frame pending set to true.
 #define OPENTHREAD_CONFIG_MAC_STAY_AWAKE_BETWEEN_FRAGMENTS 1
 
-#define OPENTHREAD_CONFIG_ENABLE_BUILTIN_MBEDTLS 0
-
-#define OPENTHREAD_CONFIG_DETERMINISTIC_ECDSA_ENABLE 0
-
 // Use the SiLabs-supplied default platform configuration for remainder
 // of OpenThread config options.
 //

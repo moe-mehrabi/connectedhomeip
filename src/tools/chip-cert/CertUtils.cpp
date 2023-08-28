@@ -837,12 +837,12 @@ bool WriteChipCert(const char * fileName, const ByteSpan & chipCert, CertFormat 
     return WriteDataIntoFile(fileName, chipCert.data(), static_cast<uint32_t>(chipCert.size()), dataFormat);
 }
 
-bool MakeCert(CertType certType, const ToolChipDN * subjectDN, X509 * caCert, EVP_PKEY * caKey, const struct tm & validFrom,
+bool MakeCert(uint8_t certType, const ToolChipDN * subjectDN, X509 * caCert, EVP_PKEY * caKey, const struct tm & validFrom,
               uint32_t validDays, int pathLen, const FutureExtensionWithNID * futureExts, uint8_t futureExtsCount, X509 * newCert,
               EVP_PKEY * newKey, CertStructConfig & certConfig)
 {
     bool res  = true;
-    bool isCA = (certType != CertType::kNode);
+    bool isCA = (certType != kCertType_Node);
 
     VerifyOrExit(subjectDN != nullptr, res = false);
     VerifyOrExit(caCert != nullptr, res = false);
@@ -867,7 +867,7 @@ bool MakeCert(CertType certType, const ToolChipDN * subjectDN, X509 * caCert, EV
     // the new cert's subject name.
     if (certConfig.IsIssuerPresent())
     {
-        if (certType == CertType::kRoot)
+        if (certType == kCertType_Root)
         {
             res = subjectDN->SetCertIssuerDN(newCert);
             VerifyTrueOrExit(res);
@@ -920,12 +920,12 @@ bool MakeCert(CertType certType, const ToolChipDN * subjectDN, X509 * caCert, EV
     // Add extended key usage certificate extensions.
     if (!certConfig.IsExtensionExtendedKeyUsageMissing())
     {
-        if (certType == CertType::kNode)
+        if (certType == kCertType_Node)
         {
             res = AddExtension(newCert, NID_ext_key_usage, "critical,clientAuth,serverAuth");
             VerifyTrueOrExit(res);
         }
-        else if (certType == CertType::kFirmwareSigning)
+        else if (certType == kCertType_FirmwareSigning)
         {
             res = AddExtension(newCert, NID_ext_key_usage, "critical,codeSigning");
             VerifyTrueOrExit(res);
@@ -943,7 +943,7 @@ bool MakeCert(CertType certType, const ToolChipDN * subjectDN, X509 * caCert, EV
     // be the same as new cert's subject key id extension.
     if (certConfig.IsExtensionAKIDPresent())
     {
-        if ((certType == CertType::kRoot) && !certConfig.IsExtensionSKIDPresent())
+        if ((certType == kCertType_Root) && !certConfig.IsExtensionSKIDPresent())
         {
             res = AddSubjectKeyId(newCert, certConfig.IsExtensionSKIDLengthValid());
             VerifyTrueOrExit(res);
@@ -990,10 +990,9 @@ exit:
     return res;
 }
 
-CHIP_ERROR MakeCertTLV(CertType certType, const ToolChipDN * subjectDN, X509 * caCert, EVP_PKEY * caKey,
-                       const struct tm & validFrom, uint32_t validDays, int pathLen, const FutureExtensionWithNID * futureExts,
-                       uint8_t futureExtsCount, X509 * x509Cert, EVP_PKEY * newKey, CertStructConfig & certConfig,
-                       MutableByteSpan & chipCert)
+CHIP_ERROR MakeCertTLV(uint8_t certType, const ToolChipDN * subjectDN, X509 * caCert, EVP_PKEY * caKey, const struct tm & validFrom,
+                       uint32_t validDays, int pathLen, const FutureExtensionWithNID * futureExts, uint8_t futureExtsCount,
+                       X509 * x509Cert, EVP_PKEY * newKey, CertStructConfig & certConfig, MutableByteSpan & chipCert)
 {
     TLVWriter writer;
     TLVType containerType;
@@ -1010,7 +1009,7 @@ CHIP_ERROR MakeCertTLV(CertType certType, const ToolChipDN * subjectDN, X509 * c
     VerifyOrReturnError(x509Cert != nullptr, CHIP_ERROR_INVALID_ARGUMENT);
     VerifyOrReturnError(newKey != nullptr, CHIP_ERROR_INVALID_ARGUMENT);
 
-    isCA = (certType == CertType::kICA || certType == CertType::kRoot);
+    isCA = (certType == kCertType_ICA || certType == kCertType_Root);
 
     uint8_t * p = subjectPubkey;
     VerifyOrReturnError(i2o_ECPublicKey(EVP_PKEY_get0_EC_KEY(newKey), &p) == chip::Crypto::CHIP_CRYPTO_PUBLIC_KEY_SIZE_BYTES,
@@ -1041,7 +1040,7 @@ CHIP_ERROR MakeCertTLV(CertType certType, const ToolChipDN * subjectDN, X509 * c
     // issuer Name
     if (certConfig.IsIssuerPresent())
     {
-        if (certType == CertType::kRoot)
+        if (certType == kCertType_Root)
         {
             ReturnErrorOnFailure(subjectDN->EncodeToTLV(writer, ContextTag(kTag_Issuer)));
         }
@@ -1187,15 +1186,15 @@ CHIP_ERROR MakeCertTLV(CertType certType, const ToolChipDN * subjectDN, X509 * c
             }
 
             // extended key usage
-            if (!certConfig.IsExtensionExtendedKeyUsageMissing() && (certType == CertType::kNode))
+            if (!certConfig.IsExtensionExtendedKeyUsageMissing() && (certType == kCertType_Node))
             {
                 ReturnErrorOnFailure(writer.StartContainer(ContextTag(kTag_ExtendedKeyUsage), kTLVType_Array, containerType3));
-                if (certType == CertType::kNode)
+                if (certType == kCertType_Node)
                 {
                     ReturnErrorOnFailure(writer.Put(AnonymousTag(), GetOIDEnum(kOID_KeyPurpose_ClientAuth)));
                     ReturnErrorOnFailure(writer.Put(AnonymousTag(), GetOIDEnum(kOID_KeyPurpose_ServerAuth)));
                 }
-                else if (certType == CertType::kFirmwareSigning)
+                else if (certType == kCertType_FirmwareSigning)
                 {
                     ReturnErrorOnFailure(writer.Put(AnonymousTag(), GetOIDEnum(kOID_KeyPurpose_CodeSigning)));
                 }

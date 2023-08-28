@@ -56,6 +56,7 @@ public:
     static constexpr const char * kConfigKey_HardwareVersion             = ("hardware-ver");
     static constexpr const char * kConfigKey_LastUsedEpochKeyId          = ("last-ek-id");
     static constexpr const char * kConfigKey_FailSafeArmed               = ("fail-safe-armed");
+    static constexpr const char * kConfigKey_WiFiStationSecType          = ("sta-sec-type");
     static constexpr const char * kConfigKey_OperationalDeviceId         = ("op-device-id");
     static constexpr const char * kConfigKey_OperationalDeviceCert       = ("op-device-cert");
     static constexpr const char * kConfigKey_OperationalDeviceICACerts   = ("op-device-ca-certs");
@@ -67,8 +68,8 @@ public:
     static constexpr const char * kConfigKey_GroupKeyIndex               = ("group-key-index");
     static constexpr const char * kConfigKey_LifeTimeCounter             = ("life-time-counter");
 
-    static constexpr const char * kConfigKey_WiFiSSID     = ("bl-wifi-ssid");
-    static constexpr const char * kConfigKey_WiFiPassword = ("bl-wifi-pass");
+    static constexpr const char * kBLConfigKey_wifissid     = ("blConfig_wifi-ssid");
+    static constexpr const char * kBLConfigKey_wifipassword = ("blConfig_wifi-pwd");
 
     /** Counter Keys, diagnostic information  */
     static constexpr const char * kCounterKey_RebootCount           = ("reboot-count");

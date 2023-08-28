@@ -76,11 +76,6 @@ CHIP_ERROR DishwasherModeDelegate::GetModeTagsByIndex(uint8_t modeIndex, List<Mo
     return CHIP_NO_ERROR;
 }
 
-ModeBase::Instance * DishwasherMode::Instance()
-{
-    return gDishwasherModeInstance;
-}
-
 void DishwasherMode::Shutdown()
 {
     if (gDishwasherModeInstance != nullptr)

@@ -33,33 +33,7 @@
   ],
   "endpointTypes": [
     {
-      "id": 1,
       "name": "MA-rootdevice",
-      "deviceTypeRef": {
-        "id": 2,
-        "code": 22,
-        "profileId": 259,
-        "label": "MA-rootdevice",
-        "name": "MA-rootdevice"
-      },
-      "deviceTypes": [
-        {
-          "id": 2,
-          "code": 22,
-          "profileId": 259,
-          "label": "MA-rootdevice",
-          "name": "MA-rootdevice"
-        }
-      ],
-      "deviceTypeRefs": [
-        2
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        22
-      ],
       "deviceTypeName": "MA-rootdevice",
       "deviceTypeCode": 22,
       "deviceTypeProfileId": 259,
@@ -5420,33 +5394,7 @@
       ]
     },
     {
-      "id": 2,
       "name": "Anonymous Endpoint Type",
-      "deviceTypeRef": {
-        "id": 24,
-        "code": 770,
-        "profileId": 259,
-        "label": "MA-tempsensor",
-        "name": "MA-tempsensor"
-      },
-      "deviceTypes": [
-        {
-          "id": 24,
-          "code": 770,
-          "profileId": 259,
-          "label": "MA-tempsensor",
-          "name": "MA-tempsensor"
-        }
-      ],
-      "deviceTypeRefs": [
-        24
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        770
-      ],
       "deviceTypeName": "MA-tempsensor",
       "deviceTypeCode": 770,
       "deviceTypeProfileId": 259,
@@ -6406,14 +6354,18 @@
       "endpointTypeIndex": 0,
       "profileId": 259,
       "endpointId": 0,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 22
     },
     {
       "endpointTypeName": "Anonymous Endpoint Type",
       "endpointTypeIndex": 1,
       "profileId": 260,
       "endpointId": 1,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 770
     }
   ],
   "log": []

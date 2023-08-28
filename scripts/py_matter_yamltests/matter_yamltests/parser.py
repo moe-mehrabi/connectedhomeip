@@ -189,8 +189,6 @@ class _TestStepWithPlaceholders:
         self.group_id = _value_or_config(test, 'groupId', config)
         self.cluster = _value_or_config(test, 'cluster', config)
         self.command = _value_or_config(test, 'command', config)
-        if not self.command:
-            self.command = _value_or_config(test, 'wait', config)
         self.attribute = _value_or_none(test, 'attribute')
         self.event = _value_or_none(test, 'event')
         self.endpoint = _value_or_config(test, 'endpoint', config)
@@ -201,7 +199,6 @@ class _TestStepWithPlaceholders:
         self.fabric_filtered = _value_or_none(test, 'fabricFiltered')
         self.min_interval = _value_or_none(test, 'minInterval')
         self.max_interval = _value_or_none(test, 'maxInterval')
-        self.keep_subscriptions = _value_or_none(test, 'keepSubscriptions')
         self.timed_interaction_timeout_ms = _value_or_none(
             test, 'timedInteractionTimeoutMs')
         self.timeout = _value_or_none(test, 'timeout')
@@ -663,10 +660,6 @@ class TestStep:
         return self._test.max_interval
 
     @property
-    def keep_subscriptions(self):
-        return self._test.keep_subscriptions
-
-    @property
     def timed_interaction_timeout_ms(self):
         return self._test.timed_interaction_timeout_ms
 
@@ -689,10 +682,6 @@ class TestStep:
     @property
     def event_number(self):
         return self._test.event_number
-
-    @event_number.setter
-    def event_number(self, value):
-        self._test.event_number = value
 
     @property
     def pics(self):
@@ -788,12 +777,8 @@ class TestStep:
             expected_wait_type
         ]
 
-        wait_for_str = received_response.get('wait_for')
-        if not wait_for_str:
-            wait_for_str = received_response.get('command')
-
         received_values = [
-            wait_for_str,
+            received_response.get('wait_for'),
             received_response.get('endpoint'),
             received_response.get('cluster'),
             received_wait_type

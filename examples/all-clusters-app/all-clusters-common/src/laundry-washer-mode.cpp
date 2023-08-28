@@ -75,11 +75,6 @@ CHIP_ERROR LaundryWasherModeDelegate::GetModeTagsByIndex(uint8_t modeIndex, List
     return CHIP_NO_ERROR;
 }
 
-ModeBase::Instance * LaundryWasherMode::Instance()
-{
-    return gLaundryWasherModeInstance;
-}
-
 void LaundryWasherMode::Shutdown()
 {
     if (gLaundryWasherModeInstance != nullptr)

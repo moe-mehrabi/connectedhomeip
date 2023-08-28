@@ -140,9 +140,7 @@ void AppTask::AppTaskMain(void * pvParameter)
 
 void AppTask::ButtonActionEventHandler(AppEvent * aEvent)
 {
-    chip::DeviceLayer::PlatformMgr().LockChipStack();
-    bool success = SmokeCoAlarmServer::Instance().RequestSelfTest(1);
-    chip::DeviceLayer::PlatformMgr().UnlockChipStack();
+    bool success = AlarmMgr().ManualSelfTesting();
     if (!success)
     {
         SILABS_LOG("Manual self-test failed");

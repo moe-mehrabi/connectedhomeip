@@ -35,8 +35,6 @@ limitations under the License.
         <typeName>Matter Root Node</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0016</deviceId>
-        <class>Node</class>
-        <scope>Node</scope>
         <clusters lockOthers="true">
             <include cluster="Access Control" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>ACL</requireAttribute>
@@ -92,8 +90,6 @@ limitations under the License.
         <typeName>Matter Power Source</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0011</deviceId>
-        <class>Utility</class>
-        <scope>Node</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>DEVICE_TYPE_LIST</requireAttribute>
@@ -110,8 +106,6 @@ limitations under the License.
         <typeName>Matter OTA Requestor</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0012</deviceId>
-        <class>Utility</class>
-        <scope>Node</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>DEVICE_TYPE_LIST</requireAttribute>
@@ -129,8 +123,6 @@ limitations under the License.
         <typeName>Matter OTA Provider</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0014</deviceId>
-        <class>Utility</class>
-        <scope>Node</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>DEVICE_TYPE_LIST</requireAttribute>
@@ -148,8 +140,6 @@ limitations under the License.
         <typeName>Matter Aggregator</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x000e</deviceId>
-        <class>Dynamic Utility</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>DEVICE_TYPE_LIST</requireAttribute>
@@ -166,8 +156,6 @@ limitations under the License.
         <typeName>Matter Bridged Device</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0013</deviceId>
-        <class>Utility</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>DEVICE_TYPE_LIST</requireAttribute>
@@ -188,8 +176,6 @@ limitations under the License.
         <typeName>Matter On/Off Light</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0100</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -273,9 +259,6 @@ limitations under the License.
         <typeName>Matter Dimmable Light</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0101</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
-        <superset>Matter On/Off Light</superset>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -362,9 +345,6 @@ limitations under the License.
         <typeName>Matter Color Temperature Light</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x010C</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
-        <superset>Matter Dimmable Light</superset>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -497,9 +477,6 @@ limitations under the License.
         <typeName>Matter Extended Color Light</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x010D</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
-        <superset>Matter Color Temperature Light</superset>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -642,8 +619,6 @@ limitations under the License.
         <typeName>Matter On/Off Plug-in Unit</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x010A</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -726,8 +701,6 @@ limitations under the License.
         <typeName>Matter Dimmable Plug-in Unit</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x010B</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -810,8 +783,6 @@ limitations under the License.
         <typeName>Matter Pump</typeName>
         <profileId editable="false">0x0999</profileId>
         <deviceId editable="false">0x0303</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -890,8 +861,6 @@ limitations under the License.
         <typeName>Matter On/Off Light Switch</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0103</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="true" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -951,9 +920,6 @@ limitations under the License.
         <typeName>Matter Dimmer Switch</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0104</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
-        <superset>Matter On/Off Light Switch</superset>
         <clusters lockOthers="true">
             <include cluster="Identify" client="true" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1014,9 +980,6 @@ limitations under the License.
         <typeName>Matter Color Dimmer Switch</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0105</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
-        <superset>Matter Dimmer Switch</superset>
         <clusters lockOthers="true">
             <include cluster="Identify" client="true" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1078,8 +1041,6 @@ limitations under the License.
         <typeName>Matter Control Bridge</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0840</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="true" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1114,8 +1075,6 @@ limitations under the License.
         <typeName>Matter Pump Controller</typeName>
         <profileId editable="false">0x0999</profileId>
         <deviceId editable="false">0x0304</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="false" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1182,8 +1141,6 @@ limitations under the License.
         <typeName>Matter Generic Switch</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x000f</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1209,8 +1166,6 @@ limitations under the License.
         <typeName>Matter Contact Sensor</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0015</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1236,8 +1191,6 @@ limitations under the License.
         <typeName>Matter Light Sensor</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0106</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1269,8 +1222,6 @@ limitations under the License.
         <typeName>Matter Occupancy Sensor</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0107</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1301,8 +1252,6 @@ limitations under the License.
         <typeName>Matter Temperature Sensor</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0302</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1326,8 +1275,6 @@ limitations under the License.
         <typeName>Matter Pressure Sensor</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0305</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1351,8 +1298,6 @@ limitations under the License.
         <typeName>Matter Flow Sensor</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0306</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1376,8 +1321,6 @@ limitations under the License.
         <typeName>Matter Humidity Sensor</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0307</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1401,8 +1344,6 @@ limitations under the License.
         <typeName>Matter On/Off Sensor</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0850</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="true" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1433,8 +1374,6 @@ limitations under the License.
         <typeName>Matter Door Lock</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x000A</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1462,8 +1401,6 @@ limitations under the License.
         <typeName>Matter Door Lock Controller</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x000B</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>DEVICE_TYPE_LIST</requireAttribute>
@@ -1484,8 +1421,6 @@ limitations under the License.
         <typeName>Matter Window Covering</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0202</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1542,8 +1477,6 @@ limitations under the License.
         <typeName>Matter Window Covering Controller</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0203</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="false" clientLocked="false" serverLocked="false">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1572,8 +1505,6 @@ limitations under the License.
         <typeName>Matter Heating/Cooling Unit</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0300</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1636,8 +1567,6 @@ limitations under the License.
         <typeName>Matter Thermostat</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0301</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1703,8 +1632,6 @@ limitations under the License.
         <typeName>Matter Fan</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x002B</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1740,8 +1667,6 @@ limitations under the License.
         <typeName>Matter Casting Video Player</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0023</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>DEVICE_TYPE_LIST</requireAttribute>
@@ -1769,8 +1694,6 @@ limitations under the License.
         <typeName>Matter Basic Video Player</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0028</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>DEVICE_TYPE_LIST</requireAttribute>
@@ -1795,8 +1718,6 @@ limitations under the License.
         <typeName>Matter Casting Video Client</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0029</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>DEVICE_TYPE_LIST</requireAttribute>
@@ -1829,8 +1750,6 @@ limitations under the License.
         <typeName>Matter Video Remote Control</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x002A</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>DEVICE_TYPE_LIST</requireAttribute>
@@ -1862,8 +1781,6 @@ limitations under the License.
         <typeName>Matter Speaker</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0022</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1888,8 +1805,6 @@ limitations under the License.
         <typeName>Matter Content App</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0024</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1920,8 +1835,6 @@ limitations under the License.
         <typeName>Matter Mode Select</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0027</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1945,8 +1858,6 @@ limitations under the License.
         <typeName>Matter Room Air Conditioner</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0072</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1974,8 +1885,6 @@ limitations under the License.
         <typeName>Matter Smoke CO Alarm</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0076</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
                 <requireAttribute>IDENTIFY_TIME</requireAttribute>
@@ -1996,8 +1905,6 @@ limitations under the License.
         <typeName>Matter Air Purifier</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x002D</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true"></include>
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
@@ -2017,8 +1924,6 @@ limitations under the License.
         <typeName>Matter Air Quality Sensor</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x002C</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true"></include>
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
@@ -2047,8 +1952,6 @@ limitations under the License.
         <typeName>Matter Dishwasher</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0075</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="false" clientLocked="true" serverLocked="false"></include>
             <include cluster="On/Off" client="false" server="false" clientLocked="true" serverLocked="false"></include>
@@ -2065,8 +1968,6 @@ limitations under the License.
         <typeName>Matter Refrigerator</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0070</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="false" clientLocked="true" serverLocked="false"></include>
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true"></include>
@@ -2080,8 +1981,6 @@ limitations under the License.
         <typeName>Matter Laundry Washer</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0073</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="false" clientLocked="true" serverLocked="false"></include>
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true"></include>
@@ -2098,8 +1997,6 @@ limitations under the License.
         <typeName>Matter Robotic Vacuum Cleaner</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0074</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Identify" client="false" server="true" clientLocked="true" serverLocked="true">
             </include>
@@ -2115,8 +2012,6 @@ limitations under the License.
         <typeName>Matter Temperature Controlled Cabinet</typeName>
         <profileId editable="false">0x0103</profileId>
         <deviceId editable="false">0x0071</deviceId>
-        <class>Simple</class>
-        <scope>Endpoint</scope>
         <clusters lockOthers="true">
             <include cluster="Descriptor" client="false" server="true" clientLocked="true" serverLocked="true"></include>
             <include cluster="Temperature Control" client="false" server="true" clientLocked="true" serverLocked="true"></include>

@@ -31,7 +31,6 @@
 #include <platform/internal/GenericConfigurationManagerImpl.ipp>
 
 using namespace ::chip::DeviceLayer::Internal;
-using namespace chip::app::Clusters::BasicInformation;
 
 namespace chip {
 namespace DeviceLayer {
@@ -662,20 +661,6 @@ CHIP_ERROR FactoryDataProvider::GetRotatingDeviceIdUniqueId(MutableByteSpan & un
 #endif
     }
 
-    return err;
-}
-
-CHIP_ERROR FactoryDataProvider::GetProductFinish(ProductFinishEnum * finish)
-{
-    CHIP_ERROR err = CHIP_NO_ERROR;
-    *finish        = ProductFinishEnum::kOther;
-    return err;
-}
-
-CHIP_ERROR FactoryDataProvider::GetProductPrimaryColor(ColorEnum * primaryColor)
-{
-    CHIP_ERROR err = CHIP_NO_ERROR;
-    *primaryColor  = ColorEnum::kBlack;
     return err;
 }
 

@@ -60,10 +60,6 @@ void ScriptDevicePairingDelegate::SetCommissioningFailureCallback(DevicePairingD
 {
     mOnCommissioningFailureCallback = callback;
 }
-void ScriptDevicePairingDelegate::SetFabricCheckCallback(DevicePairingDelegate_OnFabricCheckFunct callback)
-{
-    mOnFabricCheckCallback = callback;
-}
 
 void ScriptDevicePairingDelegate::SetCommissioningStatusUpdateCallback(
     DevicePairingDelegate_OnCommissioningStatusUpdateFunct callback)
@@ -154,23 +150,6 @@ void ScriptDevicePairingDelegate::OnOpenCommissioningWindow(NodeId deviceId, CHI
         mWindowOpener = nullptr;
     }
 }
-
-void ScriptDevicePairingDelegate::OnFabricCheck(NodeId matchingNodeId)
-{
-    if (matchingNodeId == kUndefinedNodeId)
-    {
-        ChipLogProgress(Zcl, "No matching fabric found");
-    }
-    else
-    {
-        ChipLogProgress(Zcl, "Matching fabric found");
-    }
-    if (mOnFabricCheckCallback != nullptr)
-    {
-        mOnFabricCheckCallback(matchingNodeId);
-    }
-}
-
 Callback::Callback<Controller::OnOpenCommissioningWindow> *
 ScriptDevicePairingDelegate::GetOpenWindowCallback(Controller::CommissioningWindowOpener * context)
 {

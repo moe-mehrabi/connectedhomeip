@@ -35,7 +35,6 @@ _ERROR = 'error'
 _CLUSTER_ERROR = 'clusterError'
 _VALUE = 'value'
 _DATA_VERSION = 'dataVersion'
-_EVENT_NUMBER = 'eventNumber'
 
 # FabricIndex is a special case where the field is added as a struct field by the SDK
 # if needed but is not part of the XML definition of the struct.
@@ -90,7 +89,7 @@ class Decoder:
                 elif key == _EVENT_ID:
                     key = _EVENT
                     value = specs.get_event_name(payload[_CLUSTER_ID], value)
-                elif key == _VALUE or key == _ERROR or key == _CLUSTER_ERROR or key == _DATA_VERSION or key == _EVENT_NUMBER:
+                elif key == _VALUE or key == _ERROR or key == _CLUSTER_ERROR or key == _DATA_VERSION:
                     pass
                 else:
                     # Raise an error since the other fields probably needs to be translated too.
@@ -133,7 +132,7 @@ class MatterLog:
         base64_message = log["message"].encode('utf-8')
         decoded_message_bytes = base64.b64decode(base64_message)
         # TODO We do assume utf-8 encoding is used, it may not be true though.
-        self.message = decoded_message_bytes.decode('utf-8', 'replace')
+        self.message = decoded_message_bytes.decode('utf-8')
 
     def decode_logs(logs):
         return list(map(MatterLog, logs))

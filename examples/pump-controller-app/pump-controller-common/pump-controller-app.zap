@@ -33,33 +33,7 @@
   ],
   "endpointTypes": [
     {
-      "id": 1,
       "name": "MA-rootdevice",
-      "deviceTypeRef": {
-        "id": 2,
-        "code": 22,
-        "profileId": 259,
-        "label": "MA-rootdevice",
-        "name": "MA-rootdevice"
-      },
-      "deviceTypes": [
-        {
-          "id": 2,
-          "code": 22,
-          "profileId": 259,
-          "label": "MA-rootdevice",
-          "name": "MA-rootdevice"
-        }
-      ],
-      "deviceTypeRefs": [
-        2
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        22
-      ],
       "deviceTypeName": "MA-rootdevice",
       "deviceTypeCode": 22,
       "deviceTypeProfileId": 259,
@@ -5644,33 +5618,7 @@
       ]
     },
     {
-      "id": 2,
       "name": "MA-pumpcontroller",
-      "deviceTypeRef": {
-        "id": 19,
-        "code": 772,
-        "profileId": 2457,
-        "label": "MA-pumpcontroller",
-        "name": "MA-pumpcontroller"
-      },
-      "deviceTypes": [
-        {
-          "id": 19,
-          "code": 772,
-          "profileId": 2457,
-          "label": "MA-pumpcontroller",
-          "name": "MA-pumpcontroller"
-        }
-      ],
-      "deviceTypeRefs": [
-        19
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        772
-      ],
       "deviceTypeName": "MA-pumpcontroller",
       "deviceTypeCode": 772,
       "deviceTypeProfileId": 2457,
@@ -6852,14 +6800,18 @@
       "endpointTypeIndex": 0,
       "profileId": 259,
       "endpointId": 0,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 22
     },
     {
       "endpointTypeName": "MA-pumpcontroller",
       "endpointTypeIndex": 1,
       "profileId": 2457,
       "endpointId": 1,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 772
     }
   ],
   "log": []

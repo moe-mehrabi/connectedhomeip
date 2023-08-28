@@ -510,15 +510,7 @@ void ScenesServer::GroupWillBeRemoved(FabricIndex aFabricIx, EndpointId aEndpoin
     SceneTable * sceneTable = scenes::GetSceneTableImpl(aEndpointId);
     VerifyOrReturn(nullptr != sceneTable);
 
-    chip::GroupId currentGroup;
-    Attributes::CurrentGroup::Get(aEndpointId, &currentGroup);
-
-    // If currentGroup is what is being removed, we can't possibly still have a valid scene,
-    // because the scene we have (if any) will also be removed.
-    if (aGroupId == currentGroup)
-    {
-        MakeSceneInvalid(aEndpointId);
-    }
+    MakeSceneInvalid(aEndpointId);
 
     VerifyOrReturn(nullptr != mGroupProvider);
     if (0 != aGroupId && !mGroupProvider->HasEndpoint(aFabricIx, aGroupId, aEndpointId))
@@ -553,27 +545,27 @@ void ScenesServer::RecallScene(FabricIndex aFabricIx, EndpointId aEndpointId, Gr
     }
 }
 
-bool ScenesServer::IsHandlerRegistered(EndpointId aEndpointId, scenes::SceneHandler * handler)
+bool ScenesServer::IsHandlerRegistered(scenes::SceneHandler * handler)
 {
-    SceneTable * sceneTable = scenes::GetSceneTableImpl(aEndpointId);
+    SceneTable * sceneTable = scenes::GetSceneTableImpl();
     return sceneTable->mHandlerList.Contains(handler);
 }
 
-void ScenesServer::RegisterSceneHandler(EndpointId aEndpointId, scenes::SceneHandler * handler)
+void ScenesServer::RegisterSceneHandler(scenes::SceneHandler * handler)
 {
-    SceneTable * sceneTable = scenes::GetSceneTableImpl(aEndpointId);
+    SceneTable * sceneTable = scenes::GetSceneTableImpl();
 
-    if (!IsHandlerRegistered(aEndpointId, handler))
+    if (!IsHandlerRegistered(handler))
     {
         sceneTable->RegisterHandler(handler);
     }
 }
 
-void ScenesServer::UnregisterSceneHandler(EndpointId aEndpointId, scenes::SceneHandler * handler)
+void ScenesServer::UnregisterSceneHandler(scenes::SceneHandler * handler)
 {
-    SceneTable * sceneTable = scenes::GetSceneTableImpl(aEndpointId);
+    SceneTable * sceneTable = scenes::GetSceneTableImpl();
 
-    if (IsHandlerRegistered(aEndpointId, handler))
+    if (IsHandlerRegistered(handler))
     {
         sceneTable->UnregisterHandler(handler);
     }

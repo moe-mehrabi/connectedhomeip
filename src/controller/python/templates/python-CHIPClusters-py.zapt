@@ -16,11 +16,11 @@ class ChipClusters:
 {{#zcl_clusters}}
     _{{asDelimitedMacro name}}_CLUSTER_INFO = {
         "clusterName": "{{asUpperCamelCase name}}",
-        "clusterId": {{asMEI manufacturerCode code}},
+        "clusterId": {{asHex code 8}},
         "commands": {
 {{#zcl_commands_source_client}}
-            {{asMEI manufacturerCode code}}: {
-                "commandId": {{asMEI manufacturerCode code}},
+            {{asHex code 8}}: {
+                "commandId": {{asHex code 8}},
                 "commandName": "{{asUpperCamelCase commandName}}",
                 "args": {
 {{#zcl_command_arguments}}
@@ -36,9 +36,9 @@ class ChipClusters:
         },
         "attributes": {
 {{#zcl_attributes_server removeKeys='isOptional'}}
-            {{asMEI manufacturerCode code}}: {
+            {{asHex code 8}}: {
                 "attributeName": "{{asUpperCamelCase name}}",
-                "attributeId": {{asMEI manufacturerCode code}},
+                "attributeId": {{asHex code 8}},
                 "type": "{{as_underlying_python_zcl_type type ../id}}",
                 {{#if isReportableAttribute}}
                 "reportable": True,
@@ -54,7 +54,7 @@ class ChipClusters:
 
     _CLUSTER_ID_DICT = {
 {{#zcl_clusters}}
-        {{asMEI manufacturerCode code}}: _{{asDelimitedMacro name}}_CLUSTER_INFO,
+        {{asHex code 8}}: _{{asDelimitedMacro name}}_CLUSTER_INFO,
 {{/zcl_clusters}}
     }
 

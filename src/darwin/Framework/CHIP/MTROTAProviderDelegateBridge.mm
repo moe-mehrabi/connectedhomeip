@@ -108,6 +108,7 @@ public:
 
         mExchangeMgr = nullptr;
         mSystemLayer = nullptr;
+        mDelegateNotificationQueue = nil;
 
         return CHIP_NO_ERROR;
     }

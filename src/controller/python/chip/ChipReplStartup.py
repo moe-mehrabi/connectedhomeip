@@ -87,8 +87,6 @@ parser.add_argument(
     default="/tmp/repl-storage.json")
 parser.add_argument(
     "-d", "--debug", help="Set default logging level to debug.", action="store_true")
-parser.add_argument(
-    "-t", "--trust-store", help="Path to the PAA trust store.", action="store", default="./credentials/development/paa-root-certs")
 args = parser.parse_args()
 
 chip.native.Init()
@@ -107,7 +105,7 @@ elif (len(certificateAuthorityManager.activeCaList[0].adminList) == 0):
 
 caList = certificateAuthorityManager.activeCaList
 
-devCtrl = caList[0].adminList[0].NewController(paaTrustStorePath=args.trustStore)
+devCtrl = caList[0].adminList[0].NewController()
 builtins.devCtrl = devCtrl
 
 atexit.register(StackShutdown)

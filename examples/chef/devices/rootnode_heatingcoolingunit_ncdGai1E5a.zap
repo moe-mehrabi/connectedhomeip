@@ -33,33 +33,7 @@
   ],
   "endpointTypes": [
     {
-      "id": 1,
       "name": "MA-rootdevice",
-      "deviceTypeRef": {
-        "id": 2,
-        "code": 22,
-        "profileId": 259,
-        "label": "MA-rootdevice",
-        "name": "MA-rootdevice"
-      },
-      "deviceTypes": [
-        {
-          "id": 2,
-          "code": 22,
-          "profileId": 259,
-          "label": "MA-rootdevice",
-          "name": "MA-rootdevice"
-        }
-      ],
-      "deviceTypeRefs": [
-        2
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        22
-      ],
       "deviceTypeName": "MA-rootdevice",
       "deviceTypeCode": 22,
       "deviceTypeProfileId": 259,
@@ -5420,33 +5394,7 @@
       ]
     },
     {
-      "id": 2,
       "name": "Anonymous Endpoint Type",
-      "deviceTypeRef": {
-        "id": 33,
-        "code": 768,
-        "profileId": 259,
-        "label": "MA-heatcool",
-        "name": "MA-heatcool"
-      },
-      "deviceTypes": [
-        {
-          "id": 33,
-          "code": 768,
-          "profileId": 259,
-          "label": "MA-heatcool",
-          "name": "MA-heatcool"
-        }
-      ],
-      "deviceTypeRefs": [
-        33
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        768
-      ],
       "deviceTypeName": "MA-heatcool",
       "deviceTypeCode": 768,
       "deviceTypeProfileId": 259,
@@ -8226,14 +8174,18 @@
       "endpointTypeIndex": 0,
       "profileId": 259,
       "endpointId": 0,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 22
     },
     {
       "endpointTypeName": "Anonymous Endpoint Type",
       "endpointTypeIndex": 1,
       "profileId": 260,
       "endpointId": 1,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 768
     }
   ],
   "log": []

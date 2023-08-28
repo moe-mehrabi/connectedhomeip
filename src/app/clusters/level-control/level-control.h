@@ -28,7 +28,6 @@
 
 #include <app-common/zap-generated/cluster-enums.h>
 #include <app-common/zap-generated/cluster-objects.h>
-#include <app/clusters/scenes-server/SceneTable.h>
 #include <app/util/basic-types.h>
 
 /** @brief Level Control Cluster Server Post Init
@@ -52,7 +51,5 @@ namespace LevelControlServer {
 chip::Protocols::InteractionModel::Status
 MoveToLevel(chip::EndpointId endpointId,
             const chip::app::Clusters::LevelControl::Commands::MoveToLevel::DecodableType & commandData);
-
-chip::scenes::SceneHandler * GetSceneHandler();
 
 } // namespace LevelControlServer

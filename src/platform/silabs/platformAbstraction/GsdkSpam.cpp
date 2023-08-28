@@ -68,6 +68,7 @@ SilabsPlatform::SilabsButtonCb SilabsPlatform::mButtonCallback = nullptr;
 CHIP_ERROR SilabsPlatform::Init(void)
 {
     sl_system_init();
+    sl_mbedtls_init();
 
 #if CHIP_ENABLE_OPENTHREAD
     sl_ot_sys_init();

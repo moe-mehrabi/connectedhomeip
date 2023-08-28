@@ -179,23 +179,6 @@ bool CompareByTag(const ElementContext & a, const ElementContext & b)
     return IsContextTag(a.tag);
 }
 
-CHIP_ERROR InternalConvertTlvTag(const uint64_t tagNumber, TLV::Tag & tag, const uint32_t profileId = kTemporaryImplicitProfileId)
-{
-    if (tagNumber <= UINT8_MAX)
-    {
-        tag = TLV::ContextTag(static_cast<uint8_t>(tagNumber));
-    }
-    else if (tagNumber <= UINT32_MAX)
-    {
-        tag = TLV::ProfileTag(profileId, static_cast<uint32_t>(tagNumber));
-    }
-    else
-    {
-        return CHIP_ERROR_INVALID_ARGUMENT;
-    }
-    return CHIP_NO_ERROR;
-}
-
 CHIP_ERROR ParseJsonName(const std::string name, ElementContext & elementCtx, uint32_t implicitProfileId)
 {
     uint64_t tagNumber                  = 0;
@@ -222,7 +205,19 @@ CHIP_ERROR ParseJsonName(const std::string name, ElementContext & elementCtx, ui
         return CHIP_ERROR_INVALID_ARGUMENT;
     }
 
-    ReturnErrorOnFailure(InternalConvertTlvTag(tagNumber, tag, implicitProfileId));
+    if (tagNumber <= UINT8_MAX)
+    {
+        tag = TLV::ContextTag(static_cast<uint8_t>(tagNumber));
+    }
+    else if (tagNumber <= UINT32_MAX)
+    {
+        tag = TLV::ProfileTag(implicitProfileId, static_cast<uint32_t>(tagNumber));
+    }
+    else
+    {
+        return CHIP_ERROR_INVALID_ARGUMENT;
+    }
+
     ReturnErrorOnFailure(JsonTypeStrToTlvType(elementType, type));
 
     if (type.tlvType == TLV::kTLVType_Array)
@@ -462,8 +457,4 @@ CHIP_ERROR JsonToTlv(const std::string & jsonString, TLV::TLVWriter & writer)
     return EncodeTlvElement(json, writer, elementCtx);
 }
 
-CHIP_ERROR ConvertTlvTag(const uint64_t tagNumber, TLV::Tag & tag)
-{
-    return InternalConvertTlvTag(tagNumber, tag);
-}
 } // namespace chip

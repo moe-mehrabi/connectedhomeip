@@ -73,7 +73,6 @@ _DEFINITION = '''<?xml version="1.0"?>
         <arg name="port" type="int16u"/>
         <arg name="mrpRetryIntervalIdle" type="int32u" optional="true"/>
         <arg name="mrpRetryIntervalActive" type="int32u" optional="true"/>
-        <arg name="mrpRetryActiveThreshold" type="int16u" optional="true"/>
     </command>
 </cluster>
 </configurator>

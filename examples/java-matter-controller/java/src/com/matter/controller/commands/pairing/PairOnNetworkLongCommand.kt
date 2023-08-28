@@ -22,10 +22,7 @@ import com.matter.controller.commands.common.CredentialsIssuer
 
 private const val MATTER_PORT = 5540
 
-class PairOnNetworkLongCommand(
-  val controller: ChipDeviceController,
-  credsIssue: CredentialsIssuer?
-) :
+class PairOnNetworkLongCommand(controller: ChipDeviceController, credsIssue: CredentialsIssuer?) :
   PairingCommand(
     controller,
     "onnetwork-long",
@@ -46,7 +43,5 @@ class PairOnNetworkLongCommand(
       )
     currentCommissioner().setCompletionListener(this)
     waitCompleteMs(getTimeoutMillis())
-
-    println("Commissioner Node ID : ${controller.getControllerNodeId()}")
   }
 }

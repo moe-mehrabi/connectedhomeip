@@ -67,14 +67,7 @@ private:
     OTAImageHeaderParser mHeaderParser;
 
 #if CONFIG_ENABLE_ENCRYPTED_OTA
-    CHIP_ERROR DecryptStart();
-    CHIP_ERROR DecryptEnd();
-    void DecryptAbort();
-
-    // This API decrypts the blockToDecrypt, dynamically allocates the memory for storing the
-    // plain text, and return that in decryptedBlock.
-    // Caller shall free the memory after use by calling free() on decryptedBlock.data()
-    CHIP_ERROR DecryptBlock(const ByteSpan & blockToDecrypt, ByteSpan & decryptedBlock);
+    void EndDecryption();
 
     CharSpan mKey;
     bool mEncryptedOTAEnabled                 = false;

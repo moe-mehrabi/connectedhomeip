@@ -30,13 +30,15 @@ public:
     CHIP_ERROR Init();
 
     /**
-     * @brief Execute the self-test process
+     * @brief Execute the self-test process and attribute changes
      *
      */
-    void StartSelfTesting();
+    bool StartSelfTesting();
 
 private:
     friend SmokeCoAlarmManager & AlarmMgr(void);
+
+    chip::app::Clusters::SmokeCoAlarm::ExpressedStateEnum mExpressedState;
 
     static SmokeCoAlarmManager sAlarm;
 };

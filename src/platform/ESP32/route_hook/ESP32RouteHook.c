@@ -17,12 +17,10 @@
 #include "lwip/icmp6.h"
 #include "lwip/mld6.h"
 #include "lwip/netif.h"
-#include "lwip/opt.h"
 #include "lwip/prot/icmp6.h"
 #include "lwip/prot/ip6.h"
 #include "lwip/prot/nd6.h"
 #include "lwip/raw.h"
-#include "lwip/tcpip.h"
 
 #define HOPLIM_MAX 255
 #define PIO_FLAG_ON_LINK (1 << 7)
@@ -157,41 +155,25 @@ esp_err_t esp_route_hook_init(esp_netif_t * netif)
     esp_err_t ret           = ESP_OK;
 
     ESP_RETURN_ON_FALSE(netif != NULL, ESP_ERR_INVALID_ARG, TAG, "Invalid network interface");
-
-    LOCK_TCPIP_CORE();
-
     int netif_idx = esp_netif_get_netif_impl_index(netif);
     if (netif_idx < 0 || netif_idx > UINT8_MAX)
     {
-        UNLOCK_TCPIP_CORE();
         return ESP_ERR_INVALID_SIZE;
     }
     lwip_netif = netif_get_by_index((uint8_t) netif_idx);
-
-    if (lwip_netif == NULL)
-    {
-        UNLOCK_TCPIP_CORE();
-        ESP_LOGE(TAG, "Invalid network interface");
-        return ESP_ERR_INVALID_ARG;
-    }
+    ESP_RETURN_ON_FALSE(lwip_netif != NULL, ESP_ERR_INVALID_ARG, TAG, "Invalid network interface");
 
     for (esp_route_hook_t * iter = s_hooks; iter != NULL; iter = iter->next)
     {
         if (iter->netif == lwip_netif)
         {
-            UNLOCK_TCPIP_CORE();
             ESP_LOGI(TAG, "Hook already installed on netif, skip...");
             return ESP_OK;
         }
     }
 
     hook = (esp_route_hook_t *) malloc(sizeof(esp_route_hook_t));
-    if (hook == NULL)
-    {
-        UNLOCK_TCPIP_CORE();
-        ESP_LOGE(TAG, "Cannot allocate hook");
-        return ESP_ERR_NO_MEM;
-    }
+    ESP_RETURN_ON_FALSE(hook != NULL, ESP_ERR_NO_MEM, TAG, "Cannot allocate hook");
 
     ESP_GOTO_ON_FALSE(mld6_joingroup_netif(lwip_netif, ip_2_ip6(&router_group)) == ESP_OK, ESP_FAIL, exit, TAG,
                       "Failed to join multicast group");
@@ -207,9 +189,6 @@ esp_err_t esp_route_hook_init(esp_netif_t * netif)
     s_hooks    = hook;
 
 exit:
-
-    UNLOCK_TCPIP_CORE();
-
     if (ret != ESP_OK && hook != NULL)
     {
         free(hook);

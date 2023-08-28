@@ -41,10 +41,6 @@
 #include "MemMonitoring.h"
 #endif
 
-#ifdef SIWX_917
-#include "wfx_rsi.h"
-#endif /* SIWX_917 */
-
 using namespace ::chip;
 using namespace ::chip::Inet;
 using namespace ::chip::DeviceLayer;
@@ -176,7 +172,7 @@ CHIP_ERROR SilabsMatterConfig::InitMatter(const char * appName)
 
 // WiFi needs to be initialized after Memory Init for some reason
 #ifdef SL_WIFI
-    ReturnErrorOnFailure(InitWiFi());
+    InitWiFi();
 #endif
 
     ReturnErrorOnFailure(PlatformMgr().InitChipStack());
@@ -267,16 +263,14 @@ CHIP_ERROR SilabsMatterConfig::InitWiFi(void)
 #ifdef SL_WFX_USE_SECURE_LINK
     wfx_securelink_task_start(); // start securelink key renegotiation task
 #endif                           // SL_WFX_USE_SECURE_LINK
-#endif                           /* WF200_WIFI */
-
-#ifdef SIWX_917
-    sl_status_t status;
-    if ((status = wfx_wifi_rsi_init()) != SL_STATUS_OK)
+#elif defined(SIWX_917)
+    SILABS_LOG("Init RSI 917 Platform");
+    if (wfx_rsi_platform() != SL_STATUS_OK)
     {
-        ReturnErrorOnFailure((CHIP_ERROR) status);
+        SILABS_LOG("RSI init failed");
+        return CHIP_ERROR_INTERNAL;
     }
-#endif // SIWX_917
-
+#endif /* WF200_WIFI */
     return CHIP_NO_ERROR;
 }
 #endif // SL_WIFI

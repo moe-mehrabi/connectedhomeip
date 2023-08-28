@@ -477,7 +477,7 @@ void DeviceCommissioner::Shutdown()
 
     ChipLogDetail(Controller, "Shutting down the commissioner");
 
-    mSetUpCodePairer.StopPairing();
+    mSetUpCodePairer.CommissionerShuttingDown();
 
     // Check to see if pairing in progress before shutting down
     CommissioneeDeviceProxy * device = mDeviceInPASEEstablishment;
@@ -916,18 +916,12 @@ DeviceCommissioner::ContinueCommissioningAfterDeviceAttestation(DeviceProxy * de
 CHIP_ERROR DeviceCommissioner::StopPairing(NodeId remoteDeviceId)
 {
     VerifyOrReturnError(mState == State::Initialized, CHIP_ERROR_INCORRECT_STATE);
-    VerifyOrReturnError(remoteDeviceId != kUndefinedNodeId, CHIP_ERROR_INVALID_ARGUMENT);
-
-    bool stopped = mSetUpCodePairer.StopPairing(remoteDeviceId);
 
     CommissioneeDeviceProxy * device = FindCommissioneeDevice(remoteDeviceId);
-    if (device != nullptr)
-    {
-        ReleaseCommissioneeDevice(device);
-        stopped = true;
-    }
+    VerifyOrReturnError(device != nullptr, CHIP_ERROR_INVALID_DEVICE_DESCRIPTOR);
 
-    return (stopped) ? CHIP_NO_ERROR : CHIP_ERROR_INVALID_DEVICE_DESCRIPTOR;
+    ReleaseCommissioneeDevice(device);
+    return CHIP_NO_ERROR;
 }
 
 CHIP_ERROR DeviceCommissioner::UnpairDevice(NodeId remoteDeviceId)
@@ -2156,7 +2150,7 @@ void DeviceCommissioner::ParseFabrics()
 
     if (mPairingDelegate != nullptr)
     {
-        mPairingDelegate->OnFabricCheck(info.nodeId);
+        mPairingDelegate->OnFabricCheck(info);
     }
 
     CommissioningDelegate::CommissioningReport report;
@@ -2405,7 +2399,7 @@ void DeviceCommissioner::PerformCommissioningStep(DeviceProxy * proxy, Commissio
     break;
     case CommissioningStage::kCheckForMatchingFabric: {
         // Read the current fabrics
-        if (!params.GetCheckForMatchingFabric())
+        if (params.GetCheckForMatchingFabric())
         {
             // We don't actually want to do this step, so just bypass it
             ChipLogProgress(Controller, "kCheckForMatchingFabric step called without parameter set, skipping");

@@ -33,33 +33,7 @@
   ],
   "endpointTypes": [
     {
-      "id": 1,
       "name": "MA-rootdevice",
-      "deviceTypeRef": {
-        "id": 2,
-        "code": 22,
-        "profileId": 259,
-        "label": "MA-rootdevice",
-        "name": "MA-rootdevice"
-      },
-      "deviceTypes": [
-        {
-          "id": 2,
-          "code": 22,
-          "profileId": 259,
-          "label": "MA-rootdevice",
-          "name": "MA-rootdevice"
-        }
-      ],
-      "deviceTypeRefs": [
-        2
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        22
-      ],
       "deviceTypeName": "MA-rootdevice",
       "deviceTypeCode": 22,
       "deviceTypeProfileId": 259,
@@ -5420,33 +5394,7 @@
       ]
     },
     {
-      "id": 2,
       "name": "Anonymous Endpoint Type",
-      "deviceTypeRef": {
-        "id": 31,
-        "code": 514,
-        "profileId": 259,
-        "label": "MA-windowcovering",
-        "name": "MA-windowcovering"
-      },
-      "deviceTypes": [
-        {
-          "id": 31,
-          "code": 514,
-          "profileId": 259,
-          "label": "MA-windowcovering",
-          "name": "MA-windowcovering"
-        }
-      ],
-      "deviceTypeRefs": [
-        31
-      ],
-      "deviceVersions": [
-        1
-      ],
-      "deviceIdentifiers": [
-        514
-      ],
       "deviceTypeName": "MA-windowcovering",
       "deviceTypeCode": 514,
       "deviceTypeProfileId": 259,
@@ -7088,14 +7036,18 @@
       "endpointTypeIndex": 0,
       "profileId": 259,
       "endpointId": 0,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 22
     },
     {
       "endpointTypeName": "Anonymous Endpoint Type",
       "endpointTypeIndex": 1,
       "profileId": 260,
       "endpointId": 1,
-      "networkId": 0
+      "networkId": 0,
+      "endpointVersion": 1,
+      "deviceIdentifier": 514
     }
   ],
   "log": []
